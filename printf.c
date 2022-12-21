@@ -6,37 +6,12 @@
 /*   By: vvagapov <vvagapov@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/21 18:39:30 by vvagapov          #+#    #+#             */
-/*   Updated: 2022/12/21 23:34:08 by vvagapov         ###   ########.fr       */
+/*   Updated: 2022/12/21 23:40:41 by vvagapov         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "printf.h"
 #include <stdio.h>
-
-/*
-static size_t	count_args(const char *template)
-{
-	size_t	count;
-	size_t	i;
-
-	if (!template)
-		return (0);
-	i = 0;
-	count = 0;
-	while(template[i])
-	{
-		if (template[i] == '%')
-		{
-			if (!template[i + 1])
-				break ;
-			count++;
-			i++;
-		}
-		i++;
-	}
-	return (count);
-}
-*/
 
 static int	print_char(char c)
 {
@@ -45,9 +20,9 @@ static int	print_char(char c)
 
 static int	print_int(int n)
 {
-	int	additionar_char;
+	int	additional_char;
 
-	additionar_char = 0; 
+	additional_char = 0; 
 	if (n < 0)
 	{
 		if (n == -2147483648)
@@ -57,7 +32,7 @@ static int	print_int(int n)
 		}
 		ft_putchar_fd('-', 1);
 		n *= -1;
-		additionar_char = 1;
+		additional_char = 1;
 	}
 	if (n < 10)
 		return print_char('0' + n);
@@ -74,6 +49,8 @@ static int	handle_arg(char type, va_list ap)
 		arg_len += print_char(va_arg(ap, int));
 	else if (type == 'd' || type == 'i')
 		arg_len += print_int(va_arg(ap, int));
+	else if (type == '%')
+		arg_len += print_char('%');
 	return (arg_len);
 }
 
@@ -113,6 +90,12 @@ int	main(void)
 {
 	int len;
 
-	len = ft_printf("%c%c%c%i\n", 'g', 'a', '_', -55555);
+	printf("orig%\n");
+	len = ft_printf("mine%\n");
 	printf("%d\n", len);
 }
+
+// INTERSTING TEST CASES
+/*
+ft_printf("%\n");
+*/
