@@ -6,12 +6,14 @@
 /*   By: vvagapov <vvagapov@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/21 18:01:55 by vvagapov          #+#    #+#             */
-/*   Updated: 2022/12/21 18:07:30 by vvagapov         ###   ########.fr       */
+/*   Updated: 2022/12/21 21:00:52 by vvagapov         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
+#include <stdio.h>
+
 int main(void)
 {
-	
+	printf("hello");
 	return (0);
 }
