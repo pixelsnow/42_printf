@@ -12,10 +12,19 @@
 
 #include "printf.h"
 #include <stdio.h>
+#include <limits.h>
 
 static int	print_char(char c)
 {
 	return (write(1, &c, 1));
+}
+
+static int	print_unsigned(unsigned int n)
+{
+	if (n < 10)
+		return print_char('0' + n);
+	else
+		return (print_unsigned(n / 10) + print_char('0' + n % 10));
 }
 
 static int	print_int(int n)
@@ -49,6 +58,8 @@ static int	handle_arg(char type, va_list ap)
 		arg_len += print_char(va_arg(ap, int));
 	else if (type == 'd' || type == 'i')
 		arg_len += print_int(va_arg(ap, int));
+	else if (type == 'u')
+		arg_len += print_unsigned(va_arg(ap, unsigned int));
 	else if (type == '%')
 		arg_len += print_char('%');
 	return (arg_len);
@@ -90,8 +101,9 @@ int	main(void)
 {
 	int len;
 
-	printf("orig%\n");
-	len = ft_printf("mine%\n");
+	len = printf("%d\n", 0);
+	printf("%d\n", len);
+	len = ft_printf("%d\n", 0);
 	printf("%d\n", len);
 }
 
