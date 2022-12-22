@@ -65,6 +65,20 @@ static int	print_int(int n)
 		return (print_int(n / 10) + print_char('0' + n % 10));
 }
 
+static int print_long_hex(unsigned long int n)
+{
+	if (n < 16)
+		return print_hex_char(n, 1);	
+	else
+		return (print_long_hex(n / 16) + print_hex_char(n % 16, 1));
+}
+
+static int print_pointer(void * p)
+{
+	ft_putstr_fd("0x", 1);
+	return (2 + print_long_hex((unsigned long int)p));
+}
+
 static int	handle_arg(char type, va_list ap)
 {
 	int	arg_len;
@@ -82,6 +96,8 @@ static int	handle_arg(char type, va_list ap)
 		arg_len += print_hex(va_arg(ap, unsigned int), 0);
 	else if (type == '%')
 		arg_len += print_char('%');
+	else if (type == 'p')
+		arg_len += print_pointer(va_arg(ap, void *));
 	return (arg_len);
 }
 
@@ -120,10 +136,11 @@ static int	ft_printf(const char *template, ...)
 int	main(void)
 {
 	int len;
+	int a;
 
-	len = printf("%x\n", 324567);
+	len = printf("%x\n", 6171407048);
 	printf("%d\n", len);
-	len = ft_printf("%x\n", 324567);
+	len = ft_printf("%x\n", 6171407048);
 	printf("%d\n", len);
 }
 
