@@ -19,6 +19,22 @@ static int	print_char(char c)
 	return (write(1, &c, 1));
 }
 
+static int	print_hex_char(char n, int lowercase)
+{
+	if (n < 10)
+		return print_char('0' + n);
+	else
+		return print_char('A' - 10 + n + lowercase * ('a' - 'A'));
+}
+
+static int	print_hex(unsigned int n, int lowercase)
+{
+	if (n < 16)
+		return print_hex_char(n, lowercase);	
+	else
+		return (print_hex(n / 16, lowercase) + print_hex_char(n % 16, lowercase));
+}
+
 static int	print_unsigned(unsigned int n)
 {
 	if (n < 10)
@@ -60,6 +76,10 @@ static int	handle_arg(char type, va_list ap)
 		arg_len += print_int(va_arg(ap, int));
 	else if (type == 'u')
 		arg_len += print_unsigned(va_arg(ap, unsigned int));
+	else if (type == 'x')
+		arg_len += print_hex(va_arg(ap, unsigned int), 1);
+	else if (type == 'X')
+		arg_len += print_hex(va_arg(ap, unsigned int), 0);
 	else if (type == '%')
 		arg_len += print_char('%');
 	return (arg_len);
@@ -101,9 +121,9 @@ int	main(void)
 {
 	int len;
 
-	len = printf("%d\n", 0);
+	len = printf("%x\n", 324567);
 	printf("%d\n", len);
-	len = ft_printf("%d\n", 0);
+	len = ft_printf("%x\n", 324567);
 	printf("%d\n", len);
 }
 
