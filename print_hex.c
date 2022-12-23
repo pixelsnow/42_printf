@@ -6,13 +6,13 @@
 /*   By: vvagapov <vvagapov@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/23 18:23:59 by vvagapov          #+#    #+#             */
-/*   Updated: 2022/12/23 18:25:10 by vvagapov         ###   ########.fr       */
+/*   Updated: 2022/12/23 18:44:02 by vvagapov         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "printf.h"
 
-static int	print_hex_char(char n, int lowercase)
+int	print_hex_char(char n, int lowercase)
 {
 	if (n < 10)
 		return (print_char('0' + n));
@@ -20,7 +20,7 @@ static int	print_hex_char(char n, int lowercase)
 		return (print_char('A' - 10 + n + lowercase * ('a' - 'A')));
 }
 
-static int	print_hex(unsigned int n, int lowercase)
+int	print_hex(unsigned int n, int lowercase)
 {
 	if (n < 16)
 		return (print_hex_char(n, lowercase));
