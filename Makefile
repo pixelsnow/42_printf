@@ -6,19 +6,19 @@
 #    By: vvagapov <vvagapov@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/12/23 16:28:38 by vvagapov          #+#    #+#              #
-#    Updated: 2022/12/23 20:14:47 by vvagapov         ###   ########.fr        #
+#    Updated: 2022/12/23 21:13:05 by vvagapov         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 NAME = libftprintf.a
 
 SRC =	ft_printf.c \
-		print_char.c \
-		print_str.c \
-		print_int.c \
-		print_unsigned.c \
-		print_hex.c \
-		print_ptr.c
+		ft_print_char.c \
+		ft_print_str.c \
+		ft_print_int.c \
+		ft_print_unsigned.c \
+		ft_print_hex.c \
+		ft_print_ptr.c
 
 OBJ = $(SRC:%.c=%.o)
 
