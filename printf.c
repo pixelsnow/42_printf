@@ -6,7 +6,7 @@
 /*   By: vvagapov <vvagapov@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/21 18:39:30 by vvagapov          #+#    #+#             */
-/*   Updated: 2022/12/21 23:40:41 by vvagapov         ###   ########.fr       */
+/*   Updated: 2022/12/23 16:11:40 by vvagapov         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -79,6 +79,18 @@ static int print_pointer(void * p)
 	return (2 + print_long_hex((unsigned long int)p));
 }
 
+static int print_string(char *s)
+{
+	int str_len;
+	
+	if (!s)
+		return write(1, "(null)", 6);
+	str_len = 0;
+	while (s[str_len])
+		str_len += write(1, &s[str_len], 1);
+	return (str_len);
+}
+
 static int	handle_arg(char type, va_list ap)
 {
 	int	arg_len;
@@ -98,6 +110,8 @@ static int	handle_arg(char type, va_list ap)
 		arg_len += print_char('%');
 	else if (type == 'p')
 		arg_len += print_pointer(va_arg(ap, void *));
+	else if (type == 's')
+		arg_len += print_string(va_arg(ap, char *));
 	return (arg_len);
 }
 
@@ -136,15 +150,17 @@ static int	ft_printf(const char *template, ...)
 int	main(void)
 {
 	int len;
-	int a;
+	char *a;
 
-	len = printf("%x\n", 6171407048);
+	a = NULL;
+	len = printf("%s\n", "hey");
 	printf("%d\n", len);
-	len = ft_printf("%x\n", 6171407048);
+	len = ft_printf("%s\n", "hey");
 	printf("%d\n", len);
 }
 
 // INTERSTING TEST CASES
 /*
 ft_printf("%\n");
+null pointer
 */
