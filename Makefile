@@ -6,21 +6,19 @@
 #    By: vvagapov <vvagapov@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/12/23 16:28:38 by vvagapov          #+#    #+#              #
-#    Updated: 2022/12/23 18:51:58 by vvagapov         ###   ########.fr        #
+#    Updated: 2022/12/23 19:53:14 by vvagapov         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 NAME = libftprintf.a
 
-SRC =	printf.c \
+SRC =	ft_printf.c \
 		print_char.c \
 		print_str.c \
 		print_int.c \
 		print_unsigned.c \
 		print_hex.c \
 		print_ptr.c
-
-LIBFT_DIR = libft
 
 OBJ = $(SRC:%.c=%.o)
 
@@ -30,7 +28,7 @@ all: $(NAME)
 
 $(NAME): $(OBJ)
 	$(MAKE) -C ./libft
-	@cp $(LIBFT_DIR)/libft.a $@
+	@cp ./libft/libft.a $@
 	@ar -ruvcs $@ $^
 
 %.o: %.c

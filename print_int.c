@@ -6,11 +6,11 @@
 /*   By: vvagapov <vvagapov@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/23 18:26:06 by vvagapov          #+#    #+#             */
-/*   Updated: 2022/12/23 18:44:07 by vvagapov         ###   ########.fr       */
+/*   Updated: 2022/12/23 19:25:54 by vvagapov         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "printf.h"
+#include "ft_printf.h"
 
 int	print_int(int n)
 {

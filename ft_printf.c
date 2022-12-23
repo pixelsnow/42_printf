@@ -6,11 +6,11 @@
 /*   By: vvagapov <vvagapov@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/21 18:39:30 by vvagapov          #+#    #+#             */
-/*   Updated: 2022/12/23 18:44:22 by vvagapov         ###   ########.fr       */
+/*   Updated: 2022/12/23 19:25:42 by vvagapov         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "printf.h"
+#include "ft_printf.h"
 
 // Takes a type indicator and an argument list,
 // Depending on the type indicator calls a corresponding printing function

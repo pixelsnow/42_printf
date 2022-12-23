@@ -6,11 +6,11 @@
 /*   By: vvagapov <vvagapov@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/23 18:27:30 by vvagapov          #+#    #+#             */
-/*   Updated: 2022/12/23 18:43:24 by vvagapov         ###   ########.fr       */
+/*   Updated: 2022/12/23 19:25:59 by vvagapov         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "printf.h"
+#include "ft_printf.h"
 
 int	print_char(char c)
 {
