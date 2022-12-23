@@ -1,16 +1,26 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   s_test.c                                           :+:      :+:    :+:   */
+/*   print_ptr.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: vvagapov <vvagapov@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/12/21 18:01:03 by vvagapov          #+#    #+#             */
-/*   Updated: 2022/12/21 18:36:59 by vvagapov         ###   ########.fr       */
+/*   Created: 2022/12/23 18:25:31 by vvagapov          #+#    #+#             */
+/*   Updated: 2022/12/23 18:25:47 by vvagapov         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-int	s_test ( void (*f)(char *format, ...))
+#include "printf.h"
+
+static int	print_long_hex(unsigned long int n)
 {
-	return (0);
+	if (n < 16)
+		return (print_hex_char(n, 1));
+	else
+		return (print_long_hex(n / 16) + print_hex_char(n % 16, 1));
+}
+
+static int	print_pointer(void *p)
+{
+	return (write(1, "0x", 2) + print_long_hex((unsigned long int)p));
 }

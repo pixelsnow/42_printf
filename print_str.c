@@ -1,17 +1,20 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   printf.h                                           :+:      :+:    :+:   */
+/*   print_str.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: vvagapov <vvagapov@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/12/21 18:39:41 by vvagapov          #+#    #+#             */
-/*   Updated: 2022/12/23 16:54:28 by vvagapov         ###   ########.fr       */
+/*   Created: 2022/12/23 18:26:47 by vvagapov          #+#    #+#             */
+/*   Updated: 2022/12/23 18:27:17 by vvagapov         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <stdarg.h>
-#include <stdlib.h>
-#include "libft.h"
+#include "printf.h"
 
-int	ft_printf(const char *template, ...);
+static int	print_string(char *s)
+{
+	if (!s)
+		return (write(1, "(null)", 6));
+	return (write(1, s, ft_strlen(s)));
+}
