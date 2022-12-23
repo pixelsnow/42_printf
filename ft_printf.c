@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   printf.c                                           :+:      :+:    :+:   */
+/*   ft_printf.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: vvagapov <vvagapov@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/21 18:39:30 by vvagapov          #+#    #+#             */
-/*   Updated: 2022/12/23 19:25:42 by vvagapov         ###   ########.fr       */
+/*   Updated: 2022/12/23 21:38:10 by vvagapov         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -70,8 +70,8 @@ static int	parse_args(const char *template, va_list ap)
 
 int	ft_printf(const char *template, ...)
 {
-	va_list ap;
-	int res_len;
+	va_list	ap;
+	int		res_len;
 
 	va_start(ap, template);
 	res_len = parse_args(template, ap);
