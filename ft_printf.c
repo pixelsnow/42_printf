@@ -11,31 +11,29 @@
 /* ************************************************************************** */
 
 #include "ft_printf.h"
+#include <stdio.h>
 
 // Takes a type indicator and an argument list,
 // Depending on the type indicator calls a corresponding printing function
-static int	handle_arg(char type, va_list ap)
+static int	handle_arg(char type, va_list *args)
 {
-	int	arg_len;
-
-	arg_len = 0;
 	if (type == 'c')
-		arg_len += print_char(va_arg(ap, int));
+		return (print_char(va_arg(*args, int)));
 	else if (type == 's')
-		arg_len += print_string(va_arg(ap, char *));
+		return (print_string(va_arg(*args, char *)));
 	else if (type == 'p')
-		arg_len += print_pointer(va_arg(ap, void *));
+		return (print_pointer(va_arg(*args, void *)));
 	else if (type == 'd' || type == 'i')
-		arg_len += print_int(va_arg(ap, int));
+		return (print_int(va_arg(*args, int)));
 	else if (type == 'u')
-		arg_len += print_unsigned(va_arg(ap, unsigned int));
+		return (print_unsigned(va_arg(*args, unsigned int)));
 	else if (type == 'x')
-		arg_len += print_hex(va_arg(ap, unsigned int), 1);
+		return (print_hex(va_arg(*args, unsigned int), 1));
 	else if (type == 'X')
-		arg_len += print_hex(va_arg(ap, unsigned int), 0);
+		return (print_hex(va_arg(*args, unsigned int), 0));
 	else if (type == '%')
-		arg_len += print_char('%');
-	return (arg_len);
+		return (print_char('%'));
+	return (0);
 }
 
 // Depermines whether a character corresponds to one of the supported types
@@ -47,20 +45,20 @@ static int	is_valid_type(char c)
 
 // Parses the template string and sends type indicators and an argument list
 // to be handled by handle_arg()
-static int	parse_args(const char *template, va_list ap)
+static int	parse_args(const char *format, va_list *args)
 {
 	size_t	i;
 	int		res_len;
 
 	res_len = 0;
 	i = 0;
-	while (template[i])
+	while (format[i])
 	{
-		if (template[i] != '%')
-			res_len += print_char(template[i]);
-		else if (is_valid_type(template[i + 1]))
+		if (format[i] != '%')
+			res_len += print_char(format[i]);
+		else if (is_valid_type(format[i + 1]))
 		{
-			res_len += handle_arg(template[i + 1], ap);
+			res_len += handle_arg(format[i + 1], args);
 			i++;
 		}
 		i++;
@@ -68,13 +66,13 @@ static int	parse_args(const char *template, va_list ap)
 	return (res_len);
 }
 
-int	ft_printf(const char *template, ...)
+int	ft_printf(const char *format, ...)
 {
-	va_list	ap;
+	va_list	args;
 	int		res_len;
 
-	va_start(ap, template);
-	res_len = parse_args(template, ap);
-	va_end(ap);
+	va_start(args, format);
+	res_len = parse_args(format, &args);
+	va_end(args);
 	return (res_len);
 }

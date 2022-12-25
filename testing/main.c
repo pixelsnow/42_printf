@@ -37,6 +37,8 @@ void	test_c(void)
 	test_char('0' + 256);
 	test_char(' ');
 	test_char(0);
+	printf(" %c %c %c \n", 'a', 'b', 'c');
+	ft_printf(" %c %c %c \n", 'a', 'b', 'c');
 }
 
 void	test_string(char *s)
@@ -136,6 +138,8 @@ void	test_d(void)
 	test_decimal(UINT_MAX);
 	test_decimal(ULONG_MAX);
 	test_decimal(9223372036854775807LL);
+	printf(" %d %d %d %d %d %d %d\n", INT_MAX, INT_MIN, LONG_MAX, LONG_MIN, ULONG_MAX, 0, -42);
+	ft_printf(" %d %d %d %d %d %d %d\n", INT_MAX, INT_MIN, LONG_MAX, LONG_MIN, ULONG_MAX, 0, -42);
 }
 
 void	test_integer(int n)
@@ -331,15 +335,15 @@ void	test_extras(void)
 int	main(void)
 {
 	test_c();
-	test_s();
-	test_p();
+	/* test_s();
+	test_p(); */
 	test_d();
-	test_i();
+	/* test_i();
 	test_u();
 	test_x();
 	test_xx();
 	test_percent();
-	test_extras();
+	test_extras(); */
 }
 
 // INTERESTING TEST CASES

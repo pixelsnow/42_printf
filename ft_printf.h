@@ -23,6 +23,6 @@ int	print_unsigned(unsigned int n);
 int	print_hex_char(char n, int lowercase);
 int	print_hex(unsigned int n, int lowercase);
 int	print_pointer(void *p);
-int	ft_printf(const char *template, ...);
+int	ft_printf(const char *format, ...);
 
 #endif
