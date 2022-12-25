@@ -12,6 +12,7 @@
 
 #include "ft_printf.h"
 
+// TODO: NORM
 
 // Takes a type indicator and an argument list,
 // Depending on the type indicator calls a corresponding printing function
