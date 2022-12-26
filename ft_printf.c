@@ -6,13 +6,11 @@
 /*   By: vvagapov <vvagapov@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/21 18:39:30 by vvagapov          #+#    #+#             */
-/*   Updated: 2022/12/23 21:38:10 by vvagapov         ###   ########.fr       */
+/*   Updated: 2022/12/26 15:12:46 by vvagapov         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
-
-// TODO: NORM
 
 // Takes a type indicator and an argument list,
 // Depending on the type indicator calls a corresponding printing function
@@ -23,7 +21,7 @@ static int	handle_arg(char type, va_list *args)
 	else if (type == 's')
 		return (print_string(va_arg(*args, char *)));
 	else if (type == 'p')
-		retun (print_pointer(va_arg(*args, void *)));
+		return (print_pointer(va_arg(*args, void *)));
 	else if (type == 'd' || type == 'i')
 		return (print_int(va_arg(*args, int)));
 	else if (type == 'u')
