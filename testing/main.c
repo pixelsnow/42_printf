@@ -6,7 +6,7 @@
 /*   By: vvagapov <vvagapov@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/23 16:53:23 by vvagapov          #+#    #+#             */
-/*   Updated: 2022/12/23 21:10:43 by vvagapov         ###   ########.fr       */
+/*   Updated: 2022/12/28 15:46:35 by vvagapov         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -326,24 +326,30 @@ void	test_extra(const char *s)
 
 void	test_extras(void)
 {
+	/* char * test = "Test string %";
+
+	printf("%s\n", test);
+	ft_printf("%s\n", test); */
+
+
 	printf("\n--- EXTRA TEST ---\n\n");
 	test_extra("\n1%\n");
-	test_extra("\n2%");
+	test_extra("2%");
 	test_extra("\n3df%yjh\n");
 }
 
 int	main(void)
 {
-	test_c();
-	/* test_s();
-	test_p(); */
-	test_d();
+	/*test_c();
+	 test_s();
+	test_p(); 
+	test_d();*/
 	/* test_i();
 	test_u();
 	test_x();
 	test_xx();
-	test_percent();
-	test_extras(); */
+	test_percent();*/
+	test_extras(); 
 }
 
 // INTERESTING TEST CASES
