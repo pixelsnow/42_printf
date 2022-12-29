@@ -4,7 +4,7 @@
 
 School 42 project at [Hive Helsinki](https://www.hive.fi/en/)
 
-Recreating standard C library function printf() from stdio.h
+Recreating standard C library function printf()
 
 ## Task summary
 
