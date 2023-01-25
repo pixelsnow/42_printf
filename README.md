@@ -31,7 +31,12 @@ You have to implement the following conversions:
 - **%X**  Prints a number in hexadecimal (base 16) uppercase format.
 - **%%**  Prints a percent sign.
 
-## How to run
-- `cd` into directory
-- `make` to compile the library
-- include libftprintf.a in your project and compile to use it
+## How to compile the library containing ft_printf()
+- Clone the repo and cd into it
+- `make` to compile libftprintf.a
+
+### To use ft_printf() in your project
+- Compile the library
+- Add `#include "ft_printf.h"` to your project
+- Compile your project like so: `gcc project.c libftprintf.a` to use the library
+
