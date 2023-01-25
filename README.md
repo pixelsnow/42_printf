@@ -38,5 +38,5 @@ You have to implement the following conversions:
 ### To use ft_printf() in your project
 - Compile the library
 - Add `#include "ft_printf.h"` to your project
-- Compile your project like so: `gcc project.c libftprintf.a` to use the library
+- Compile your project like so: `gcc project.c libftprintf.a`
 
